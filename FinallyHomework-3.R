@@ -54,10 +54,10 @@ OneWay_ANOV = function(df){
     x = "*P<0.05"
   } else if (P_value >= 0.001 && P_value < 0.01){
     F_value = paste(F_value,"**")
-    x = "*P<0.01"
+    x = "**P<0.01"
   }else if (P_value < 0.001){
       F_value = paste(F_value,"***")
-      x = "*P<0.001"
+      x = "***P<0.001"
   }
   
   
