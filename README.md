@@ -22,14 +22,34 @@ $$
 SS_{\text{Between}} = \sum_{i=1}^{k} n_i (\bar{X}_i - \bar{X})^2
 $$
 
-其中，$\bar{X}_i$ 是第 $i$ 个组的样本均值，$\bar{X}$ 是总体均值。
+其中，第一个是X第 $i$ 个组的样本均值， 第二个X是总体均值。
 
-#### 误差平方和
+#### 组内平方和
 
-误差平方和（Error Sum of Squares）计算如下：
+组内平方和（Within Sum of Squares）计算如下：
 
 $$
-SS_{\text{Error}} = \sum_{i=1}^{k} \sum_{j=1}^{n_i} (X_{ij} - \bar{X}_i)^2
+SS_{\text{Within}} = \sum_{i=1}^{k} \sum_{j=1}^{n_i} (X_{ij} - \bar{X}_i)^2
+$$
+
+### 组间均方（MSBetween）与组内均方(MSWithin)
+
+组间与组内均方过程如下：
+
+$$
+df_{\text{Between}} = k - 1
+$$
+
+$$
+df_{\text{Within}} = N - k
+$$
+
+$$
+MS_{\text{Between}} = \frac{SS_{\text{Between}}}{df_{\text{Between}}}
+$$
+
+$$
+MS_{\text{Within}} = \frac{SS_{\text{Within}}}{df_{\text{Within}}}
 $$
 
 #### 单边ANOVA F 统计量
@@ -37,10 +57,16 @@ $$
 单边ANOVA的 F 统计量计算如下：
 
 $$
-F = \frac{MS_{\text{Between}}}{MS_{\text{Error}}}
+F = \frac{MS_{\text{Between}}}{MS_{\text{Within}}}
 $$
 
-其中，$MS_{\text{Between}} = \frac{SS_{\text{Between}}}{k-1}$ 是组间均方，$MS_{\text{Error}} = \frac{SS_{\text{Error}}}{N-k}$ 是误差均方。
+
+#### 单边ANOVA P 统计量(R语言)
+
+
+$$
+P_{\text{value}} = 1 - CDF_{}(F, df_{\text{Between}}, df_{\text{Within}})
+$$
 
 #### 决策规则
 
